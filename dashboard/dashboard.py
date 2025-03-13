@@ -2,15 +2,8 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import sys
 
-st.write("Python Version:", sys.version)
-try:
-    import matplotlib
-    st.write("Matplotlib Version:", matplotlib.__version__)
-except ModuleNotFoundError:
-    st.write("Matplotlib tidak ditemukan.")
-    
+
 # Load Data
 df = pd.read_csv("main_data.csv")
 
