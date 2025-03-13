@@ -6,7 +6,6 @@ import seaborn as sns
 # Load Data
 df = pd.read_csv("main_data.csv")
 
-# ini perubahan 1
 # Streamlit UI
 st.title("Dashboard Analisis Bike Sharing")
 st.sidebar.header("Filter Data")
