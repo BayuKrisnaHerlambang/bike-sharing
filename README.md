@@ -36,3 +36,23 @@ Distribusi Berdasarkan Suhu & Kecepatan Angin → Filter interaktif untuk eksplo
 - Peminjaman meningkat pada suhu yang lebih hangat (~20-30°C).
 
 - Kecepatan angin tinggi tidak berpengaruh signifikan terhadap peminjaman.
+
+## Hasil Clustering
+
+### Clustering Berdasarkan Permintaan Sepeda:
+
+- Kategori High Demand memiliki jumlah peminjaman jauh lebih tinggi dibanding Medium dan Low Demand.
+
+- Permintaan sepeda tertinggi terjadi pada jam sibuk dan musim panas.
+
+### Clustering Berdasarkan Suhu:
+
+- Suhu hangat dan panas memiliki jumlah peminjaman tertinggi.
+
+- Suhu dingin menyebabkan penurunan signifikan dalam peminjaman.
+
+### Clustering Berdasarkan Kecepatan Angin:
+
+- Kecepatan angin tidak memiliki dampak signifikan terhadap jumlah peminjaman.
+
+- Peminjaman sedikit lebih rendah pada kategori Tinggi, tetapi tidak terlalu berbeda dibanding Sedang dan Rendah.
