@@ -1,40 +1,32 @@
-import streamlit as st
+import os
 import pandas as pd
+import streamlit as st
+
+# Path ke main_data.csv
+file_path = os.path.join(os.path.dirname(__file__), "main_data.csv")
+
+# Cek apakah file tersedia sebelum membacanya
+if os.path.exists(file_path):
+    df = pd.read_csv(file_path)
+else:
+    st.error(f"❌ File tidak ditemukan: {file_path}. Pastikan file sudah diupload.")
+    st.stop()  # Hentikan eksekusi jika file tidak ditemukan
+
+# Tampilan di Streamlit
+st.title("📊 Bike Sharing Dashboard")
+st.write("Selamat datang di dashboard analisis peminjaman sepeda!")
+
+# Menampilkan beberapa baris pertama data
+st.subheader("🔍 Tinjauan Data")
+st.write(df.head())
+
+# Visualisasi jumlah peminjaman berdasarkan jam
+st.subheader("⏰ Jumlah Peminjaman Berdasarkan Jam")
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
-# Load Data
-df = pd.read_csv("../data/day.csv")
-df = pd.read_csv("../data/hour.csv")
-
-# Streamlit UI
-st.title("Dashboard Analisis Bike Sharing")
-st.sidebar.header("Filter Data")
-
-# Filter
-season = st.sidebar.multiselect("Pilih Musim", df["season_label"].unique())
-hour_range = st.sidebar.slider("Pilih Jam", min_value=int(df["hr"].min()), max_value=int(df["hr"].max()), value=(0, 23))
-
-# Filter Data
-filtered_df = df.copy()
-if season:
-    filtered_df = filtered_df[filtered_df["season_label"].isin(season)]
-filtered_df = filtered_df[(filtered_df["hr"] >= hour_range[0]) & (filtered_df["hr"] <= hour_range[1])]
-
-# Visualisasi
-st.subheader("Total Peminjaman Sepeda per Musim")
-fig, ax = plt.subplots()
-sns.barplot(x="season_label", y="cnt", data=filtered_df, estimator=sum, palette="coolwarm", ax=ax)
-ax.set_xlabel("Musim")
-ax.set_ylabel("Total Peminjaman")
+fig, ax = plt.subplots(figsize=(10,5))
+sns.lineplot(x='hr', y='cnt', data=df, ax=ax)
+plt.xlabel("Jam")
+plt.ylabel("Jumlah Peminjaman")
 st.pyplot(fig)
-
-st.subheader("Total Peminjaman Sepeda berdasarkan Jam")
-fig, ax = plt.subplots()
-sns.lineplot(x="hr", y="cnt", data=filtered_df, estimator=sum, marker="o", ax=ax)
-ax.set_xlabel("Jam")
-ax.set_ylabel("Total Peminjaman")
-st.pyplot(fig)
-
-st.write("\n\n**Insight:** Berdasarkan visualisasi, kita dapat melihat pola penggunaan sepeda berdasarkan musim dan jam tertentu.")
