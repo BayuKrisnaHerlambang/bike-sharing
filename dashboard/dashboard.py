@@ -5,7 +5,8 @@ import seaborn as sns
 
 
 # Load Data
-df = pd.read_csv("main_data.csv")
+df = pd.read_csv("../data/day.csv")
+df = pd.read_csv("../data/hour.csv")
 
 # Streamlit UI
 st.title("Dashboard Analisis Bike Sharing")
