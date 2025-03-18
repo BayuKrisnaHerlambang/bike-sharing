@@ -6,10 +6,10 @@ Proyek ini adalah analisis data peminjaman sepeda berdasarkan dataset Bike Shari
 
 ## Fitur Dashboard
 
-✅ Tinjauan Data → Menampilkan ringkasan dataset. <p>
-✅ Visualisasi Tren Peminjaman → Grafik peminjaman berdasarkan waktu (jam, hari, musim). <p>
-✅ Pengaruh Cuaca terhadap Peminjaman → Boxplot peminjaman berdasarkan kondisi cuaca. <p>
-✅ Distribusi Berdasarkan Suhu & Kecepatan Angin → Filter interaktif untuk eksplorasi data. <p>
+Tinjauan Data → Menampilkan ringkasan dataset. <p>
+Visualisasi Tren Peminjaman → Grafik peminjaman berdasarkan waktu (jam, hari, musim). <p>
+Pengaruh Cuaca terhadap Peminjaman → Boxplot peminjaman berdasarkan kondisi cuaca. <p>
+Distribusi Berdasarkan Suhu & Kecepatan Angin → Filter interaktif untuk eksplorasi data. <p>
 
 ## Hasil Analisis
 
