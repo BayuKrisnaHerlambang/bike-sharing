@@ -19,7 +19,19 @@ st.subheader("🔍 Tinjauan Data")
 st.write(df.head())
 
 st.subheader("📈 Statistik Peminjaman Sepeda")
+# Pastikan season_label ada, jika belum buat dari kolom season
+if "season_label" not in df.columns:
+    season_mapping = {1: "Spring", 2: "Summer", 3: "Fall", 4: "Winter"}
+    df["season_label"] = df["season"].map(season_mapping)
+
+# Cek apakah kolom weathersit ada
+if "weathersit" not in df.columns:
+    st.error("❌ Kolom 'weathersit' tidak ditemukan dalam dataset.")
+    st.stop()
+
+# Tampilkan statistik
 st.write(df[['cnt', 'season_label', 'weathersit']].groupby(['season_label', 'weathersit']).mean().reset_index())
+
 
 st.subheader("⏰ Tren Peminjaman Berdasarkan Waktu")
 fig, ax = plt.subplots(figsize=(10,5))
